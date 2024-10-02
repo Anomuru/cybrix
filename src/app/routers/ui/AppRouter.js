@@ -4,15 +4,18 @@ import {Suspense} from 'react';
 import {createRoutesFromElements, Route, RouterProvider} from "react-router";
 import {createBrowserRouter} from "react-router-dom";
 
+import {routersConfig} from "../config/configRouter";
+
 export const AppRouter = () => {
 
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <>
+            routersConfig.map(item =>
                 <Route
-                    path={"/"}
+                    path={item.path}
+                    element={item.element}
                 />
-            </>
+            )
         )
     );
 
