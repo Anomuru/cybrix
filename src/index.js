@@ -1,6 +1,8 @@
 import {App} from "app/App";
 
 import {StoreProvider} from "app/providers";
+
+import "app/styles/index.sass"
 import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
