@@ -1,2 +1,32 @@
 .header
+
+  position: sticky
+  backdrop-filter: blur(4px)
+  //background-color: rgba(0, 0, 0, 0.32)
+  box-shadow: 0 0 5px 0
+  top: 0
+  &__wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 2rem 3rem
   //background-color: green
+  &__list
+    display: flex
+    gap: 5rem
+    list-style: none
+    align-items: center
+    font-size: 1.6rem
+    li
+      cursor: pointer
+      color: rgba(113, 113, 113, 1)
+      transition: .5s all
+      padding: 1rem
+      border-radius: 15px
+      &:hover
+        color: #CBD5E1
+    .active
+      color: white
+      border: 1px solid
+
+
