@@ -17,6 +17,7 @@ export const HomeHeader = () => {
 
     const [list, setList] = useState(headerList[0].name)
 
+    const [active , setActive] = useState(false)
     console.log(list)
 
     return (
@@ -26,12 +27,17 @@ export const HomeHeader = () => {
                     <img src={headerLogo} alt=""/>
                 </div>
 
-                <ul className={cls.header__list}>
-                    {headerList?.map(item => (
-                        <li onClick={() => setList(item.name)} className={list === item.name ? cls.active : null}>{item.label}</li>
-                    ))}
-                    <Button>Login</Button>
-                </ul>
+                <div className={cls.menu}>
+                    <ul className={active ?  cls.active__menu : cls.header__list }>
+                        {headerList?.map(item => (
+                            <li onClick={() => setList(item.name)} className={list === item.name ? cls.active : null}>{item.label}</li>
+                        ))}
+                        <Button>Login</Button>
+                    </ul>
+                </div>
+                <div onClick={() => setActive(!active)} className={cls.header__bars}>
+                    <i className={"fas fa-bars"}/>
+                </div>
             </div>
         </div>
     );

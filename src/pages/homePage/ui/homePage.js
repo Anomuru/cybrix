@@ -1,7 +1,7 @@
 import React from 'react';
 
 import cls from "./homePage.module.sass";
-import {Home, HomeHeader, Services} from "entities/home";
+import {Category, Footer, Home, HomeHeader, Projects, Services} from "entities/home";
 
 export const HomePage = () => {
     return (
@@ -9,6 +9,9 @@ export const HomePage = () => {
             <HomeHeader/>
             <Home/>
             <Services/>
+            <Category/>
+            <Projects/>
+            <Footer/>
         </div>
     )
 }

@@ -1,0 +1,70 @@
+.category
+  padding: 5rem
+  justify-content: center
+  display: flex
+  &__wrapper
+    background-color: rgba(203, 213, 225, 1)
+    padding: 3rem
+    border-radius: 10px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    width: fit-content
+    gap: 5rem
+  &__title
+    font-size: 5rem
+  &__mainBox
+    display: flex
+    gap: 5rem
+    flex-wrap: wrap
+    justify-content: center
+  &__box
+    box-shadow: 0 0 5px 0
+    //padding: 3rem
+    width: 40rem
+    background-color: rgba(31, 31, 31, 1)
+    border-radius: 10px
+    padding: 3rem 2rem
+
+    height: fit-content
+    display: flex
+    flex-direction: column
+    gap: 2rem
+    &_title
+      font-size: 2rem
+      color: #CBD5E1
+      //padding: 1rem 2rem
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+    &_descr
+      font-size: 1.8rem
+      color: rgba(153, 153, 153, 1)
+    &_price
+      display: flex
+      justify-content: space-between
+      color: #CBD5E1
+      align-items: center
+      font-size: 2rem
+      span
+        border-radius: 10px
+        font-size: 1.8rem
+        background-color: rgba(44, 44, 44, 1)
+        //border: 1px solid
+        padding: 1rem
+    &_footerImg
+      display: flex
+      justify-content: flex-end
+  &__img
+    border: 3px solid rgba(41, 41, 41, 1)
+    display: flex
+    justify-content: center
+    padding: 1rem
+    border-radius: 5px
+    cursor: pointer
+    align-items: center
+    transition: .5s
+    &:hover
+      transform:  scale(1.1)
+      box-shadow: 0 0 5px 0 rgb(145, 135, 135)
