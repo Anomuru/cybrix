@@ -3,7 +3,8 @@ import React from 'react';
 import {
     DesignAbout,
     DesignHome,
-    DesignMaterial
+    DesignMaterial,
+    DesignEmail
 } from "entities/design";
 
 import cls from "./designPage.module.sass";
@@ -14,6 +15,7 @@ export const DesignPage = () => {
             <DesignHome/>
             <DesignAbout/>
             <DesignMaterial/>
+            <DesignEmail/>
         </div>
     )
 }
