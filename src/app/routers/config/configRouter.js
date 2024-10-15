@@ -1,5 +1,6 @@
 import {DesignPage} from "pages/designPage";
 import {HomePage} from "pages/homePage";
+import {TelegramBotPage} from "../../../pages/telegramBotPage/inex";
 
 export const routersConfig = [
     {
@@ -11,8 +12,8 @@ export const routersConfig = [
         element: <DesignPage/>,
     },
     {
-        path: "/telegramBot",
-        element: null,
+        path: "/telegram",
+        element: <TelegramBotPage/>,
     },
     {
         path: "/none",
