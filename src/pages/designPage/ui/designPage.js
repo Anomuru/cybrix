@@ -4,7 +4,12 @@ import {
     DesignAbout,
     DesignHome,
     DesignMaterial,
-    DesignEmail
+    DesignEmail,
+    DesignPacking,
+    DesignInterface,
+    DesignCompany,
+    DesignVisualization,
+    DesignFooter
 } from "entities/design";
 
 import cls from "./designPage.module.sass";
@@ -16,6 +21,11 @@ export const DesignPage = () => {
             <DesignAbout/>
             <DesignMaterial/>
             <DesignEmail/>
+            <DesignPacking/>
+            <DesignInterface/>
+            <DesignCompany/>
+            <DesignVisualization/>
+            <DesignFooter/>
         </div>
     )
 }
