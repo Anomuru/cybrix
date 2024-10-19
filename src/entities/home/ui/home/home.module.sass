@@ -25,10 +25,10 @@
 
     font-style: normal
     font-weight: bold
-    font-size: 10rem
+    font-size: 9rem
 
   &__desrc
-    font-size: 3.5rem
+    font-size: 3.2rem
     width: 60%
     text-align: center
     font-family: "Inter", sans-serif
@@ -41,3 +41,122 @@
     padding: 1.5rem
     border-radius: 20px
     //height: 4rem
+
+
+
+
+
+
+.textarea
+  width: 100%!important
+
+.formcontainer
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 50vh
+  padding: 20px
+  box-sizing: border-box
+h2
+  font-size: 2rem
+.contactform
+  border-radius: 10px
+  padding: 40px
+  width: fit-content
+  h2
+    margin-bottom: 20px
+
+.formgroup
+  display: flex
+  justify-content: space-between
+  margin-bottom: 20px
+
+.formfield
+  display: flex
+  flex-direction: column
+  width: 48%
+  label
+    color: #726d6d
+    margin-bottom: 10px
+    font-size: 1.8rem
+  input, textarea
+    width: 100%
+    border: 1px solid #ccc
+    outline: none
+    padding: 10px
+    border-radius: 5px
+    font-size: 16px
+
+  textarea
+    height: 80px
+    resize: none
+
+.fullwidth
+  width: 100%
+
+.submitbutton
+  display: block
+  background-color: #000
+  color: #fff
+  padding: 10px 20px
+  font-size: 16px
+  border: none
+  border-radius: 5px
+  cursor: pointer
+  margin-top: 20px
+  width: 100%
+
+  &:hover
+    background-color: #333
+
+
+
+
+@media screen and (max-width: 768px)
+  .formgroup
+    flex-direction: column
+    .formfield
+      width: 100%
+
+@media screen and (max-width: 480px)
+  .contactform
+    padding: 20px
+    width: 100%
+    box-sizing: border-box
+
+
+
+
+@media (max-width: 950px)
+  .home
+    height: fit-content
+    &__title
+      font-size: 8rem
+
+    &__desrc
+      font-size: 2.5rem
+    &__button
+      font-size: 1.5rem
+      padding: 1.2rem
+@media (max-width: 850px)
+  .home
+    &__title
+      font-size: 6rem
+
+    &__desrc
+      font-size: 2rem
+    &__button
+      font-size: 1.3rem
+      padding: 1rem
+
+
+@media (max-width: 750px)
+  .home
+    &__title
+      font-size: 6rem
+
+    &__desrc
+      width: 90%
+    &__button
+      font-size: 1.3rem
+      padding: 1rem

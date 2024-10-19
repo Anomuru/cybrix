@@ -30,6 +30,7 @@
     display: flex
     gap: 5rem
     flex-wrap: wrap
+    justify-content: center
   &__box
     display: flex
     flex-direction: column
@@ -40,3 +41,127 @@
       font-size: 3rem
     p
       font-size: 1.8rem
+
+@media (max-width: 1300px)
+  .projects
+    &__title
+      font-size: 3rem
+      span
+        font-size: 4rem
+    &__button
+      width: 10rem
+      height: 4rem
+      font-size: 1.6rem
+    &__box
+      width: 50rem
+@media (max-width: 870px)
+  .projects
+    padding: 2rem
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    gap: 2rem
+    &__header
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 90%
+    &__title
+      font-size: 2rem
+      color: white
+      display: flex
+      flex-direction: column
+      span
+        margin-left: 8px
+        font-size: 2rem
+    &__button
+      font-size: 1.4rem
+      width: 10rem
+      height: 4rem
+      border-radius: 20px
+    &__wrapper
+      display: flex
+      gap: 3rem
+      flex-wrap: wrap
+      align-items: center
+      justify-content: center
+    &__box
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      gap: 2rem
+      width: 50rem
+      color: white
+      h2
+        font-size: 1.6rem
+      p
+        padding: 1rem 3rem
+        text-align: center
+        font-size: 1.7rem
+      img
+        width: 70%
+        align-self: center
+
+
+
+
+
+
+@media (max-width: 640px)
+  .projects
+    padding: 2rem
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    gap: 2rem
+    &__header
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: 100%
+    &__title
+      font-size: 2rem
+      color: white
+      display: flex
+      flex-direction: column
+      span
+        margin-left: 8px
+        font-size: 2rem
+    &__button
+      font-size: 1.3rem
+      width: 10rem
+      //padding: 0
+      height: 4rem
+      border-radius: 20px
+    &__wrapper
+      display: flex
+      gap: 3rem
+      flex-wrap: wrap
+      align-items: center
+      justify-content: center
+    &__box
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      gap: 2rem
+      width: 40rem
+      color: white
+      h2
+        font-size: 1.5rem
+      p
+        padding: 1rem 6rem
+        text-align: center
+        font-size: 1rem
+      img
+        width: 70%
+        align-self: center
+
+
+@media (max-width: 400px)
+  .projects
+    &__box
+      width: 30rem

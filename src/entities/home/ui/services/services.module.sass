@@ -11,6 +11,8 @@
     gap: 15rem
     align-items: center
     flex-wrap: wrap
+    &_title
+      display: none
   &__list
     ul
       list-style: none
@@ -39,3 +41,224 @@
           width: 5rem
           border-radius: 50%
           background-color: #CBD5E1
+
+
+
+@media (max-width: 1650px)
+  .services
+    &__wrapper
+      gap: 0
+      img
+        width: 90%
+
+@media (max-width: 1500px)
+  .services
+    &__img
+      width: 50%
+    &__wrapper
+      align-items: center
+
+    &__title
+      font-size: 7rem
+    &__list
+      ul
+        gap: 2rem
+        li
+          gap: 2rem
+          div
+            h2
+              font-size: 2rem
+            p
+              font-size: 1.3rem
+          span
+            font-size: 2rem
+            //color: #CBD5E1
+
+
+@media (max-width: 1300px)
+  .services
+    &__img
+      width: 50%
+    &__wrapper
+      align-items: center
+
+    &__title
+      font-size: 7rem
+    &__list
+      ul
+        gap: 3rem
+        li
+          gap: 1rem
+          div
+            h2
+              font-size: 1.8rem
+            p
+              font-size: 1.1rem
+          span
+            font-size: 1.8rem
+            height: 4rem
+            width: 4rem
+//color: #CBD5E1
+@media (max-width: 1150px)
+  .services
+    &__img
+      width: 50%
+      display: flex
+      justify-content: flex-start
+      img
+        width: 100%
+    &__wrapper
+      align-items: center
+      //flex-direction: column
+      gap: 1rem
+    &__title
+      font-size: 6rem
+      text-align: center
+    &__list
+      ul
+        gap: 2rem
+        li
+          gap: 1rem
+          div
+            h2
+              font-size: 1.7rem
+            p
+              font-size: 1rem
+          span
+            font-size: 1.8rem
+            height: 4rem
+            width: 4rem
+
+@media (max-width: 995px)
+  .services
+    &__img
+      width: 40%
+      display: flex
+      justify-content: flex-start
+      img
+        width: 100%
+    &__wrapper
+      align-items: center
+      //flex-direction: column
+      //gap: .6rem
+    &__title
+      font-size: 6rem
+      text-align: center
+    &__list
+      ul
+        gap: 2rem
+        li
+          gap: 0.5rem
+          div
+            h2
+              font-size: 1.7rem
+            p
+              font-size: 1rem
+              width: 70%
+          span
+            font-size: 1.8rem
+            height: 4rem
+            width: 4rem
+
+@media (max-width: 900px)
+  .services
+    &__title
+      font-size: 6rem
+      text-align: center
+      display: none
+    &__img
+      width: 100%
+      display: flex
+      justify-content: flex-start
+      img
+        width: 100%
+    &__wrapper
+      align-items: center
+      flex-direction: column
+      &_title
+        display: flex
+        justify-content: center
+    //gap: .6rem
+
+
+    &__list
+      &_box
+        grid-column-start: 1
+        grid-column-end: 3
+        display: flex
+        margin-top: 10px
+        justify-content: center
+      ul
+        display: grid
+        grid-template-columns: repeat(2, 300px)
+        gap: 2rem 0rem
+
+        li
+          gap: 0.5rem
+          div
+            h2
+              font-size: 1.7rem
+            p
+              font-size: 1rem
+              width: 70%
+          span
+            font-size: 1.8rem
+            height: 4rem
+            width: 4rem
+
+@media (max-width: 700px)
+  .services
+    &__img
+      width: 100%
+      img
+        width: 100%
+    &__wrapper
+      &_title
+        font-size: 4rem
+    &__list
+      ul
+        display: grid
+        grid-template-columns: repeat(2, 250px)
+        gap: 2rem 1rem
+
+        li
+          gap: 0.5rem
+          div
+            h2
+              font-size: 1.6rem
+            p
+              font-size: 1rem
+              width: 70%
+          span
+            font-size: 1.6rem
+            height: 4rem
+            width: 4rem
+
+
+@media (max-width: 600px)
+  .services
+    &__img
+      width: 100%
+      img
+        width: 100%
+    &__wrapper
+      &_title
+        font-size: 4rem
+    &__list
+      &_box
+        justify-content: flex-start
+      ul
+        flex-direction: column
+        display: flex
+        li
+          gap: 2rem
+          div
+            h2
+              font-size: 1.6rem
+            p
+              font-size: 1rem
+              width: 70%
+          span
+            font-size: 1.6rem
+            height: 4rem
+            width: 4rem

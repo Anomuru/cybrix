@@ -1,19 +1,26 @@
-import React from 'react';
-import {Outlet} from "react-router";
+import React, {useEffect, useState} from 'react';
+import {Outlet, useLocation, useMatches, useNavigate, useParams} from "react-router";
+import {useDispatch, useSelector} from "react-redux";
 
-import {HomeHeader as Header} from "entities/home";
-import {Footer} from "entities/home"
+import cls from "./layout.module.sass"
+import {Menubar} from "../../widgets/menubar/Menubar";
 
-import cls from "./Layout.module.sass";
+
+
 
 export const Layout = () => {
+
     return (
         <>
-            <Header/>
-            <main>
-                <Outlet/>
+            <Menubar/>
+            <main className={cls.main}>
+                <div className={cls.main__content}>
+                    <Outlet/>
+                </div>
             </main>
-            <Footer/>
         </>
-    )
-}
+    );
+};
+
+
+

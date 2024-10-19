@@ -1,0 +1,5 @@
+export {default as  applicationsSlice} from "./model/slice/applicationSlice"
+export {fetchApplications} from "./model/thunk/applicationThunk"
+export {getApplicationsData , getApplicationsStatus} from "./model/selector/applicationSelector"
+export {Application} from "./ui/applications"
+export {ApplicationsHeader} from "./ui/applicationsHeader/applicationsHeader"

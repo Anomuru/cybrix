@@ -4,15 +4,18 @@ import servicesImg from "shared/assets/img/jjj 1.svg"
 export const Services = () => {
     return (
         <div className={cls.services}>
-
+            <div className={cls.services__title}>
+                Xizmatlar
+            </div>
             <div className={cls.services__wrapper}>
-                <div>
-                    <div className={cls.services__title}>
-                        Xizmatlar
-                    </div>
+                <div className={cls.services__img}>
                     <img src={servicesImg} alt=""/>
                 </div>
+
                 <div className={cls.services__list}>
+                    <div className={`${cls.services__wrapper_title} ${cls.services__title}`}>
+                        Xizmatlar
+                    </div>
                     <ul>
                         <li>
                             <span>1</span>
@@ -42,7 +45,7 @@ export const Services = () => {
                                 <p>Ilovangiz qulay va intuitiv foydalanishga ega bo'ladi.</p>
                             </div>
                         </li>
-                        <li>
+                        <li  className={cls.services__list_box}>
                             <span>5</span>
                             <div>
                                 <h2>Custom yechimlar</h2>
