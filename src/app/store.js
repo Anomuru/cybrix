@@ -1,4 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
+import {applicationsSlice} from "../entities/applications";
+
+
 
 const stringMiddleware = () => (next) => (action) => {
     if (typeof action === 'string') {
@@ -11,7 +14,9 @@ const stringMiddleware = () => (next) => (action) => {
 
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        applicationsSlice
+    },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware().concat(
             stringMiddleware

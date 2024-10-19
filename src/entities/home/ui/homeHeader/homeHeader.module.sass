@@ -1,9 +1,11 @@
 .header
 
   position: sticky
-  backdrop-filter: blur(4px)
+  //backdrop-filter: blur(4px)
   //background-color: rgba(0, 0, 0, 0.32)
-  box-shadow: 0 0 5px 0 white
+  //box-shadow: 0 0 5px 0 white
+  background: #0b0a15
+  //background:
   top: 0
   &__wrapper
     display: flex
@@ -34,14 +36,14 @@
       border: 1px solid
 
 
-@media (max-width: 1242px)
+@media (max-width: 1270px)
   .header
     &__list
       font-size: 1.3rem
       gap: 2rem
       li
         padding: 0.6rem
-@media (max-width: 900px)
+@media (max-width: 950px)
   .header
     &__bars
       display: flex
@@ -55,9 +57,47 @@
       width: 26rem
       padding: 2rem
       border-radius: 10px
+      position: relative
+    .active
+      border: none
+      //position: relative
+      color: black!important
+      &:after
+        margin-top: 10px
+        content: ""
+        display: block
+        left: 0
+        width: 100%
+        position: absolute
+        background-color: black
+        height: 2px
+
+
   .menu
-    backdrop-filter: blur(5px)
-    top: 30rem
-    left: 5%
+    backdrop-filter: blur(24px)
+    /* top: 30rem; */
+    top: 0
+    left: -3000px
+    transition: 1s all
     position: fixed
+    width: 100%
+    background: #000000b5
+    height: 100vh
+    display: flex
+    align-items: flex-start
+    padding-left: 2rem
+    flex-direction: column
+    justify-content: center
+    &__bars
+      //align-self: flex-end
+      color: black
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 5rem
+      margin-bottom: 10px
+      height: 5rem
+      background-color: #CBD5E1
+      //padding: 1rem
+      border-radius: 50%
 

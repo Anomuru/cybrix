@@ -1,21 +1,13 @@
 import {DesignPage} from "pages/designPage";
 import {HomePage} from "pages/homePage";
+import {Applications} from "../../../pages/applications";
+
 
 export const routersConfig = [
     {
-        path: "/",
-        element: <HomePage/>,
-    },
-    {
-        path: "/design",
-        element: <DesignPage/>,
-    },
-    {
-        path: "/telegramBot",
-        element: null,
-    },
-    {
-        path: "/none",
-        element: null,
+        name: "Applications",
+        path: "applications",
+        element : <Applications/>
     }
+
 ]
