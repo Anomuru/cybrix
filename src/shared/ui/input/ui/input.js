@@ -54,9 +54,9 @@ export const Input = React.memo(({
                 {type === "password" && (
                     <div className={cls.eye} onClick={() => setShowPassword(!showPassword)}>
                         {showPassword ? (
-                            <i className="fa-solid fa-eye" />
+                            <i className="fas fa-eye" />
                         ) : (
-                            <i className="fa-solid fa-eye-slash" />
+                            <i className="fa fa-eye-slash" />
                         )}
                     </div>
                 )}

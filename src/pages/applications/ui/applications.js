@@ -3,6 +3,11 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import cls from "./applications.module.sass"
+import {Filter} from "./applicationsFilterItem/filter";
+import {
+    fetchApplicationsAgree,
+    fetchApplicationsDisagree
+} from "../../../entities/applications/model/thunk/applicationThunk";
 
 
 const item =[
@@ -18,11 +23,19 @@ export const Applications = () => {
         dispatch(fetchApplications())
     }, [])
 
-    console.log(data , "data")
+    useEffect(() => {
+        if (active === "agree"){
+            dispatch(fetchApplicationsAgree())
+        }else if (active === "disagree") {
+            dispatch(fetchApplicationsDisagree())
+        }
+    } , [active])
+
     return (
         <div className={cls.main}>
+
             <ApplicationsHeader item={item} setActive={setActive} active={active}/>
-            <Application data={data}/>
+            {active ? <Filter active={active}/> : <Application data={data}/>}
         </div>
     );
 };

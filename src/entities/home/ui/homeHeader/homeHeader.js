@@ -2,6 +2,7 @@ import cls from "./homeHeader.module.sass"
 import headerLogo from "shared/assets/img/Cybrix logo.svg"
 import {Button} from "../../../../shared/ui/button/button";
 import {useState} from "react";
+import {useNavigate} from "react-router";
 
 const headerList = [
     {name: "home", label: "Home"},
@@ -19,6 +20,7 @@ export const HomeHeader = () => {
 
     const [active , setActive] = useState(false)
 
+    const navigate = useNavigate()
     return (
         <div className={cls.header}>
             <div className={cls.header__wrapper}>
@@ -35,7 +37,7 @@ export const HomeHeader = () => {
                         {headerList?.map(item => (
                             <li onClick={() => setList(item.name)} className={list === item.name ? cls.active : null}>{item.label}</li>
                         ))}
-                        <Button>Login</Button>
+                        <Button onClick={() => navigate("/login")}>Login</Button>
                     </ul>
                 </div>
                 <div onClick={() => setActive(!active)} className={cls.header__bars}>

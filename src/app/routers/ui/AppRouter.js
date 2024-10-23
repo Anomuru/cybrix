@@ -7,6 +7,7 @@ import {createBrowserRouter} from "react-router-dom";
 import {routersConfig} from "../config/configRouter";
 import {Layout} from "../../layout/Layout";
 import {HomePage} from "../../../pages/homePage";
+import {Login} from "../../../pages/login";
 
 export const AppRouter = () => {
 
@@ -15,6 +16,8 @@ export const AppRouter = () => {
             <>
 
                 <Route path={"/"} element={<HomePage/>}/>
+                <Route path={"/login"} element={<Login/>}/>
+
                 <Route path={"platform/*"} element={<Layout/>}>
                     {routersConfig.map(item =>
                         <Route

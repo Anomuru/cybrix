@@ -5,13 +5,13 @@ import classNames from "classnames";
 
 export const ApplicationsHeader = ({item , setActive, active}) => {
 
-
+    console.log(active)
     return (
         <div className={cls.header}>
             {item.map((item , i) => (
                 <div className={classNames(cls.header_item , {
                     [cls.active] : active === item.name
-                })} onClick={() => setActive(item.name)}>
+                })} onClick={() => setActive(prev => prev === item.name ? null : item.name)}>
                     <i className={item.img}/>  {item.label}
                 </div>
             ))}

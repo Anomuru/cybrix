@@ -18,7 +18,7 @@ export const Application = ({data}) => {
     };
 
     const [activeModal, setActiveModal] = useState(false)
-    const [activeModalID , setActiveModalId] = useState(null)
+    const [activeModalID, setActiveModalId] = useState(null)
 
     const renderApplicationsData = () => {
         return data.map((item, i) => (
@@ -28,6 +28,10 @@ export const Application = ({data}) => {
                     +998 {formatSalary(item.phone_number)}
                 </h3>
 
+                {/*{item.status === true || item.status === false ? null : <Button onClick={() => {*/}
+                {/*    setActiveModalId(item)*/}
+                {/*    setActiveModal(!activeModal)*/}
+                {/*}}><i className={"fa fa-phone"}/> Contact</Button>}*/}
                 <Button onClick={() => {
                     setActiveModalId(item)
                     setActiveModal(!activeModal)

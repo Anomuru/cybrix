@@ -35,6 +35,7 @@ export const ApplicationsModal = ({activeModal, setActiveModal, activeModalID}) 
                 console.log(res)
                 setValue("comment" , "")
                 setActiveModal(false)
+                setSelected(null)
             })
             .catch(err => {
                 console.log(err)
