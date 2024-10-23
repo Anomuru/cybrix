@@ -1,4 +1,4 @@
-import {memo} from "react";
+import {memo, useState} from "react";
 import {useForm} from "react-hook-form";
 import {API_URL, headers, useHttp} from "shared/api/base";
 import {Button} from "shared/ui/button";
@@ -9,16 +9,29 @@ import {Modal} from "shared/ui/modal";
 import {Select} from "shared/ui/select";
 
 import cls from "./projectsAddModal.module.sass";
+import {useSelector} from "react-redux";
+import {getTypeOrderData} from "../../../../entities/typeOrder";
 
 export const ProjectsAddModal = memo(({active, setActive}) => {
 
     const {request} = useHttp()
+    const typeOrder = useSelector(getTypeOrderData)
     const {register, handleSubmit} = useForm()
 
+    const [select, setSelected] = useState(null)
+
     const onSubmit = (data) => {
-        console.log(data, "data")
-        request(`${API_URL}`, "POST", JSON.stringify(data), headers())
-            .then(res => console.log(res, "success"))
+        console.log(data, select, "data")
+
+        const res = {
+            ...data,
+            project_type: select
+        }
+        request(`${API_URL}project/`, "POST", JSON.stringify(res), headers())
+
+            .then(res => {
+                console.log(res, "success")
+            })
             .catch(err => console.log(err))
     }
 
@@ -43,11 +56,15 @@ export const ProjectsAddModal = memo(({active, setActive}) => {
                     name={"name"}
                 />
                 <Select
+                    onChangeOption={setSelected}
+                    options={typeOrder}
                     extraClass={cls.addModal__select}
                     title={"Type order"}
                 />
                 <Input
                     type={"date"}
+                    register={register}
+                    name={"finishing_date"}
                     extraClassName={cls.addModal__input}
                     title={"Finishing date"}
                 />

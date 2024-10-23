@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Outlet, Route, Routes, useNavigate} from "react-router";
 
 import {Button} from "shared/ui/button";
@@ -7,12 +7,19 @@ import {ProjectsFilter, ProjectsAddModal} from "features/projects";
 import {Header} from "widgets/header";
 
 import cls from "./projectsPage.module.sass";
+import {useDispatch} from "react-redux";
+import {fetchProjectsData} from "../../../entities/projects/model/projectsThunk";
 
 export const ProjectsPage = () => {
 
     const navigate = useNavigate()
     const [activeFilter, setActiveFilter] = useState(false)
     const [activeAddModal, setActiveAddModal] = useState(false)
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchProjectsData())
+    } , [])
 
     return (
         <div className={cls.projectsPage}>

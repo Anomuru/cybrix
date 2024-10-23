@@ -1,13 +1,26 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-import {TypeOrderAddModal} from "features/typeOrder";
-import {ProjectsEditList} from "entities/typeOrder";
+import {TypeOrderAddModal, TypeOrderEditModal} from "features/typeOrder";
+import {fetchTypeOrderData, getTypeOrderData, ProjectsEditList} from "entities/typeOrder";
 
 import cls from "./typeOrderPage.module.sass";
+import {useDispatch, useSelector} from "react-redux";
 
 export const TypeOrderPage = () => {
 
     const [activeStatus, setActiveStatus] = useState(null)
+    const [active, setActive] = useState(false)
+    const [activeId, setActiveId] = useState(false)
+
+    const typeOrderData = useSelector(getTypeOrderData)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchTypeOrderData())
+    } , [])
+
+    console.log(activeId)
+
+
 
     return (
         <div className={cls.typeOrder}>
@@ -17,11 +30,13 @@ export const TypeOrderPage = () => {
             >
                 <i className={"fa fa-plus"}></i>
             </div>
-            <ProjectsEditList/>
+            <ProjectsEditList setActiveId={setActiveId} active={active} setActive={setActive} data={typeOrderData}/>
             <TypeOrderAddModal
                 active={activeStatus === "add"}
                 setActive={setActiveStatus}
             />
+
+            <TypeOrderEditModal id={activeId} active={active} setActive={setActive}/>
         </div>
     )
 }

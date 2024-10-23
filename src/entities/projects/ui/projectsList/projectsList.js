@@ -2,7 +2,6 @@ import {memo} from 'react';
 import {useSelector} from "react-redux";
 
 import {getProjectsData, getProjectsLoading} from "../../model/projectsSelector";
-import {TableSkeleton} from "shared/ui/tableSkeleton";
 import {Table} from "shared/ui/table";
 
 import cls from "./projectsList.module.sass";
@@ -19,8 +18,8 @@ export const ProjectsList = memo(() => {
                 <tr>
                     <td>{index + 1}</td>
                     <td>{item?.name}</td>
-                    <td>{item?.added_date}</td>
-                    <td>{item?.finished_date}</td>
+                    <td>{item?.registered_at}</td>
+                    <td>{item?.finishing_date}</td>
                 </tr>
             )
         })

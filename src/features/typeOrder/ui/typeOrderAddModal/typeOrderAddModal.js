@@ -9,16 +9,26 @@ import {Modal} from "shared/ui/modal";
 import {Button} from "shared/ui/button";
 
 import cls from "./typeOrderAddModal.module.sass";
+import {useDispatch} from "react-redux";
+import {onAddTypeOrder} from "../../../../entities/typeOrder/model/slice/typeOrderSlice";
 
 export const TypeOrderAddModal = memo(({active, setActive}) => {
 
     const {request} = useHttp()
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit , reset} = useForm()
 
+    const dispatch = useDispatch()
     const onSubmit = (data) => {
         console.log(data, "data")
-        request(`${API_URL}`, "POST", JSON.stringify(data), headers())
-            .then(res => console.log(res))
+        request(`${API_URL}project-type/`, "POST", JSON.stringify(data), headers())
+            .then(res => {
+                dispatch(onAddTypeOrder(data))
+
+
+                console.log(res)
+                setActive(false)
+                reset()
+            })
             .catch(err => console.log(err))
     }
 

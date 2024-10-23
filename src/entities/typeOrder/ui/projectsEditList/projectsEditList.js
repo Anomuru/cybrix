@@ -6,9 +6,9 @@ import {Table} from "shared/ui/table";
 
 import cls from "entities/typeOrder/ui/projectsEditList/projectsEditList.module.sass";
 
-export const ProjectsEditList = memo(() => {
+export const ProjectsEditList = memo(({data , setActive , setActiveId}) => {
 
-    const data = useSelector(getProjectsData)
+    // const data = useSelector(getProjectsData)
     const loading = useSelector(getProjectsLoading)
 
     const renderList = () => {
@@ -19,8 +19,13 @@ export const ProjectsEditList = memo(() => {
                     <td/>
                     <td>{item?.name}</td>
                     <td>
-                        <i className="fas fa-pen"/>
-                        edit
+                        <div onClick={() => {
+                            setActive(true)
+                            setActiveId(item?.id)
+                        }} className={cls.edit}>
+                            <i className="fas fa-pen"/>
+                            edit
+                        </div>
                     </td>
                 </tr>
             )

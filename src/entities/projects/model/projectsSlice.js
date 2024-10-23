@@ -1,83 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import {fetchProjectsData} from "./projectsThunk";
+import {fetchProjectsData, fetchProjectsTypeData} from "./projectsThunk";
 
 const initialState = {
-    data: [
-        {
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },{
-            name: "null",
-            added_date: "3.10.2024",
-            finished_date: "3.10.2024"
-        },
-    ],
+    data: [],
+    typeProject: [],
     loading: true,
     error: null
 }
@@ -98,6 +25,20 @@ const projectsSlice = createSlice({
                 state.error = null
             })
             .addCase(fetchProjectsData.rejected, state => {
+                state.loading = false
+                state.error = "error"
+            })
+
+            .addCase(fetchProjectsTypeData.pending, state => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(fetchProjectsTypeData.fulfilled, (state, action) => {
+                state.typeProject = action.payload
+                state.loading = false
+                state.error = null
+            })
+            .addCase(fetchProjectsTypeData.rejected, state => {
                 state.loading = false
                 state.error = "error"
             })
