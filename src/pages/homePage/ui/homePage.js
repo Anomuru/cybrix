@@ -6,12 +6,12 @@ import {Category, Footer, Home, HomeHeader, Projects, Services} from "entities/h
 export const HomePage = () => {
     return (
         <div className={cls.home}>
-            <HomeHeader/>
+            {/*<HomeHeader/>*/}
             <Home/>
             <Services/>
             <Category/>
             <Projects/>
-            <Footer/>
+            {/*<Footer/>*/}
         </div>
     )
 }
