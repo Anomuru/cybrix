@@ -14,7 +14,8 @@
   align-items: center
   justify-content: center
   flex-direction: column
-  background-color: rgba(0, 0, 0, 0.65)
+  background-color: #393939DB
+  backdrop-filter: blur(10.399999618530273px)
   z-index: 1500
 
 
@@ -25,12 +26,18 @@
     background: white
     border-radius: .5rem
     position: relative
+    &.dark
+      background: #0B0A15
+      color: #fff
+      display: flex
+      flex-direction: column
+      gap: 3rem
+      font-size: 1.6rem
 
   &__close
     position: absolute
     top: 1.6rem
-    right: 2.5rem
-    width: 30px
-    height: 30px
+    right: 3.1rem
+    font-size: 3rem
     cursor: pointer
     @include btn-active

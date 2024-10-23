@@ -1,5 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {applicationsSlice} from "../entities/applications";
+
+import {applicationsSlice} from "entities/applications";
+import {projectsSlice} from "entities/projects";
 
 
 
@@ -15,7 +17,8 @@ const stringMiddleware = () => (next) => (action) => {
 
 export const store = configureStore({
     reducer: {
-        applicationsSlice
+        applicationsSlice,
+        projectsSlice
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware().concat(

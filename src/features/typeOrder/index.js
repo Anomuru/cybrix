@@ -1,0 +1,1 @@
+export {TypeOrderAddModal} from "./ui/typeOrderAddModal/typeOrderAddModal";
