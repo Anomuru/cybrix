@@ -1,9 +1,14 @@
-import {Application, ApplicationsHeader, fetchApplications, getApplicationsData} from "entities/applications";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import cls from "./applications.module.sass"
+import {
+    Application,
+    ApplicationsHeader,
+    fetchApplications,
+    getApplicationsData
+} from "entities/applications";
 
+import cls from "./applications.module.sass"
 
 const item =[
     {name: "agree" , label: "Kelishildi", img: "fa fa-check"},
@@ -18,7 +23,6 @@ export const Applications = () => {
         dispatch(fetchApplications())
     }, [])
 
-    console.log(data , "data")
     return (
         <div className={cls.main}>
             <ApplicationsHeader item={item} setActive={setActive} active={active}/>
