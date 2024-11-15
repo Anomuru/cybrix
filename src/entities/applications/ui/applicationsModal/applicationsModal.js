@@ -8,6 +8,8 @@ import {useState} from "react";
 import {getCLS} from "web-vitals";
 import {API_URL, headers, useHttp} from "../../../../shared/api/base";
 import {isAllOf} from "@reduxjs/toolkit";
+import {useDispatch} from "react-redux";
+import {onAddAlertOptions} from "../../../../features/alert/model/slice/alertSlice";
 
 
 const list = [
@@ -24,6 +26,7 @@ export const ApplicationsModal = ({activeModal, setActiveModal, activeModalID}) 
     }
 
 
+    const dispatch = useDispatch()
     const {request} = useHttp()
     const onPost = (data) => {
 
@@ -32,6 +35,12 @@ export const ApplicationsModal = ({activeModal, setActiveModal, activeModalID}) 
             status: selected
         }), headers())
             .then(res => {
+                dispatch(onAddAlertOptions({
+                    type: true,
+                    status: "success",
+                    msg: res.msg
+
+                }))
                 console.log(res)
                 setValue("comment" , "")
                 setActiveModal(false)
@@ -40,7 +49,6 @@ export const ApplicationsModal = ({activeModal, setActiveModal, activeModalID}) 
             .catch(err => {
                 console.log(err)
             })
-        console.log(data, selected)
     }
     const renderTable = () => {
         return list.map(item => (
@@ -59,7 +67,7 @@ export const ApplicationsModal = ({activeModal, setActiveModal, activeModalID}) 
 
             <Modal extraClass={cls.modal} active={activeModal} setActive={setActiveModal}>
                 <h2>Comment</h2>
-                <Form extraClassnameButton={cls.button} onSubmit={handleSubmit(onPost)}>
+                <Form extraClassnameButton={cls.button} extraClassname={cls.form} onSubmit={handleSubmit(onPost)}>
                     <Textarea extraClassName={cls.button} register={register} name={"comment"}/>
                     {renderTable()}
                 </Form>

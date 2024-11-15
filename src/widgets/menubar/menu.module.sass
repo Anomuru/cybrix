@@ -9,14 +9,18 @@
   //border-radius: 1.6rem
   display: flex
   flex-direction: column
-  //justify-content: space-between
+  justify-content: space-between
   padding: 3rem 0 0 0
   box-shadow: 0 0 5px 0 grey
   border-right: 2px solid white
   &__logo
     align-self: center
+    display: flex
+    flex-direction: column
+    align-items: center
+    width: 100%
     img
-      width: 90%
+      width: 80%
   &__inner
     font-family: Inter, serif
     width: 100%
@@ -68,6 +72,27 @@
     &__title
       letter-spacing: .1rem
       font-size: 1.6rem
+  &__footer
+    min-height: 8rem
+    justify-self: flex-end
+    padding: 2.4rem
+    border-top: .2rem solid
+    background-color: #FAFAFA
+    //border-radius: 0 0 1.6rem 1.6rem
+    display: flex
+    align-items: center
+    justify-content: center
+    color: #5C5E64
+    font-size: 1.3rem
+    gap: 1rem
+    cursor: pointer
+    i
+      font-size: 3rem
+  &__exit
+    display: flex
+    align-items: center
+    gap: 1rem
+    cursor: pointer
 
 @media (max-width: 1440px)
   .menu

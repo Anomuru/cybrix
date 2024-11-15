@@ -38,7 +38,7 @@ const data = [
 export const Category = () => {
 
     const [item, setItem] = useState(null)
-    console.log(item)
+
 
 
     const renderData = () => {
@@ -46,9 +46,9 @@ export const Category = () => {
             <div className={cls.category__box}>
                 <div className={cls.category__box_title}>
                     {item.title}
-                    <div onClick={() => setItem(item.id)} className={cls.category__img}>
-                        <img src={arrowImg} alt=""/>
-                    </div>
+                    {/*<div onClick={() => setItem(item.id)} className={cls.category__img}>*/}
+                    {/*    <img src={arrowImg} alt=""/>*/}
+                    {/*</div>*/}
                 </div>
                 <div className={cls.category__box_descr}>
                     {item.descr}

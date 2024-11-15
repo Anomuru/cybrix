@@ -1,9 +1,18 @@
 import cls from "./services.module.sass"
 import servicesImg from "shared/assets/img/jjj 1.svg"
+import {useContext, useEffect, useRef} from "react";
+import {Context} from "pages/homePage/ui/homePage";
 
 export const Services = () => {
+
+    const sectionRef = useRef()
+    const {setSectionTop} = useContext(Context)
+    useEffect(() => {
+        setSectionTop(cur => ({...cur, about_us: sectionRef?.current?.offsetTop}))
+    }, [setSectionTop])
+
     return (
-        <div className={cls.services}>
+        <div className={cls.services} ref={sectionRef}>
             <div className={cls.services__title}>
                 Xizmatlar
             </div>
