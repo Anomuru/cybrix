@@ -1,0 +1,139 @@
+.projectProfile
+  height: 97vh
+  color: white
+  display: flex
+
+  justify-content: center
+  align-items: center
+  //width: 80%
+  //flex-direction: column
+  &__frameworks
+    margin-left: 10px
+    text-transform: capitalize
+    font-size: 2rem
+    //color: #49454f
+    //text-shadow:  0 3px 3px
+    ul
+      list-style: none
+      li
+        //align-items: center
+        display: flex
+        flex-direction: column
+        .li_in
+          //display: flex
+          margin: 10px 0
+        span
+          margin-left: 10px
+        img
+          width: 10rem
+
+  &__main
+    display: flex
+    justify-content: center
+    position: relative
+    padding: 3rem 0 0 3rem
+  &__wrapper
+    display: flex
+    gap: 2rem
+  &__btn
+    align-self: flex-start
+    position: absolute
+    left: 20px
+  &__img
+    width: 70rem
+    border-radius: 30px
+    overflow: hidden
+    img
+      width: 100%
+  &__info
+    display: flex
+
+    flex-direction: column
+    gap: 2rem
+    h2
+      font-size: 6rem
+    span
+      font-size: 2.5rem
+      width: 90%
+
+
+.footer
+  padding: 5rem 0
+  display: flex
+  flex-direction: column
+  //align-items: center
+  justify-content: center
+  align-self: flex-start
+  //align-self: flex-end
+  align-items: flex-end
+  ul
+    display: flex
+    justify-content: space-around
+    list-style: none
+    font-size: 2rem
+    gap: 2rem
+    color: white
+    width: 100%
+    li
+      display: flex
+      gap: 1rem
+      a
+        text-decoration: none
+        color: white
+        &:hover
+          color: #CBD5E1
+
+@media (max-width: 1199px)
+  .projectProfile
+    &__info
+      h2
+        font-size: 5rem
+      span
+        font-size: 1.9rem
+    &__img
+      width: 50rem
+
+@media (max-width: 790px)
+  .projectProfile
+    &__info
+      h2
+        font-size: 5rem
+      span
+        font-size: 1.8rem
+    &__img
+      width: 40rem
+
+@media (max-width: 699px)
+  .projectProfile
+    &__wrapper
+      flex-direction: column
+    &__info
+      h2
+        font-size: 5rem
+      span
+        font-size: 1.6rem
+    &__img
+      width: 45rem
+@media (max-width: 500px)
+  .projectProfile
+
+    &__info
+      h2
+        font-size: 4rem
+      span
+        font-size: 2rem
+    &__img
+      width: 40rem
+      img
+        width: 100%
+@media (max-width: 450px)
+  .projectProfile
+    &__info
+      h2
+        font-size: 4rem
+      span
+        font-size: 1.4rem
+    &__img
+      width: 30rem
+      img
+        width: 100%

@@ -18,7 +18,6 @@ export const TypeOrderPage = () => {
         dispatch(fetchTypeOrderData())
     } , [])
 
-    console.log(activeId)
 
 
 

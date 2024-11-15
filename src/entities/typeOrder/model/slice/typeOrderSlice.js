@@ -20,7 +20,7 @@ const typeOrderSlice = createSlice({
             state.typeOrderData = state.typeOrderData.filter(item => item.id !== action.payload)
         },
         onEditTypeOrder: (state, action) => {
-            state.typeOrderData = [...state.typeOrderData.filter(item => item.id !== action.payload.id) , action.payload.data]
+            state.typeOrderData = [...state.typeOrderData.filter(item => item.id !== action.payload.id) , action.payload.res]
         }
 
     },

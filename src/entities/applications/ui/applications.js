@@ -21,7 +21,7 @@ export const Application = ({data}) => {
     const [activeModalID, setActiveModalId] = useState(null)
 
     const renderApplicationsData = () => {
-        return data.map((item, i) => (
+        return data?.map((item, i) => (
             <div className={cls.boxItem}>
                 <h2>{item.surname} {item.name}</h2>
                 <h3>
@@ -45,7 +45,7 @@ export const Application = ({data}) => {
 
     return (
         <div className={cls.box}>
-            {render}
+            {render ? render : null}
             <ApplicationsModal activeModalID={activeModalID} setActiveModal={setActiveModal} activeModal={activeModal}/>
         </div>
     );

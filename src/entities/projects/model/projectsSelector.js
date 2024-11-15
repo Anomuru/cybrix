@@ -6,5 +6,11 @@ export const getProjectsTypesData = (state) =>
 export const getProjectsLoading = (state) =>
     state.projectsSlice.loading
 
+export const getProjectLanguages = (state) =>
+    state.projectsSlice.typeLanguages
+
+export const getProjectDatabase = (state) =>
+    state.projectsSlice.database
+
 export const getProjectsError = (state) =>
     state.projectsSlice.error

@@ -5,7 +5,6 @@ import classNames from "classnames";
 
 export const ApplicationsHeader = ({item , setActive, active}) => {
 
-    console.log(active)
     return (
         <div className={cls.header}>
             {item.map((item , i) => (

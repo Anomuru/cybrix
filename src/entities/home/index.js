@@ -9,3 +9,5 @@ export {Category} from "./ui/category/category"
 export {Projects} from "./ui/projects/projects"
 
 export {Footer} from "./ui/footer/footer"
+
+export {default as homeProjectSlice} from "./model/slice/projectSlice"

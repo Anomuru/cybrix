@@ -5,9 +5,10 @@ import {createRoutesFromElements, Route, RouterProvider} from "react-router";
 import {createBrowserRouter} from "react-router-dom";
 
 import {routersConfig} from "../config/configRouter";
-import {Layout} from "../../layout/Layout";
-import {HomePage} from "../../../pages/homePage";
-import {Login} from "../../../pages/login";
+import {Layout} from "../../layout";
+import {HomePage} from "pages/homePage";
+import {Login} from "pages/login";
+import {ProjectProfile} from "pages/projectProfilePage/projectProfile";
 
 export const AppRouter = () => {
 
@@ -17,6 +18,7 @@ export const AppRouter = () => {
 
                 <Route path={"/"} element={<HomePage/>}/>
                 <Route path={"/login"} element={<Login/>}/>
+                <Route path={"/profile/:id"} element={<ProjectProfile/>}/>
 
                 <Route path={"platform/*"} element={<Layout/>}>
                     {routersConfig.map(item =>

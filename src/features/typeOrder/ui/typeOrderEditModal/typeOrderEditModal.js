@@ -10,19 +10,23 @@ import {API_URL, headers, useHttp} from "shared/api/base";
 import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
 import {onAddTypeOrder, onDeleteTypeOrder, onEditTypeOrder} from "entities/typeOrder/model/slice/typeOrderSlice";
+import {useState} from "react";
+import {ConfirmModal} from "../../../../shared/ui/confirmModal/confirmModal";
 
 export const TypeOrderEditModal = ({setActive, active, id}) => {
 
     const {request} = useHttp()
     const {register, handleSubmit, reset} = useForm()
 
+    const [confirmModal, setConfirmModal] = useState(false)
+
     const dispatch = useDispatch()
     const onSubmit = (data) => {
         console.log(data, "data")
         request(`${API_URL}project-type/${id}/`, "PATCH", JSON.stringify(data), headers())
             .then(res => {
-                dispatch(onEditTypeOrder({id: id , data}))
-                console.log(res)
+                dispatch(onEditTypeOrder({id: res.id, res}))
+                console.log(res, "res")
                 setActive(false)
                 reset()
             })
@@ -59,21 +63,28 @@ export const TypeOrderEditModal = ({setActive, active, id}) => {
                     placeholder={"Name"}
                 />
 
+                <textarea
+                    className={classNames(cls.addModal__input, cls.addModal__text)}
+                    {...register("description")}
+                    placeholder={"Description"}
+                />
+
                 <div className={cls.main}>
                     <Button
                         onClick={handleSubmit(onSubmit)}
                         extraClass={cls.addModal__btn}
                     >
-                        Add
+                        Edit
                     </Button>
                     <Button
-                        onClick={handleSubmit(onDelete)}
+                        onClick={handleSubmit(() => setConfirmModal(true))}
                         extraClass={cls.addModal__btnDelete}
                     >
                         Delete
                     </Button>
                 </div>
             </Form>
+            <ConfirmModal onClick={handleSubmit(onDelete)} active={confirmModal} setActive={setConfirmModal}/>
         </Modal>
     );
 };

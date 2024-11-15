@@ -17,3 +17,22 @@ export const fetchProjectsTypeData = createAsyncThunk(
         return request(`${API_URL}project-type/`, "GET", null, headers())
     }
 )
+
+
+
+export const fetchLanguages = createAsyncThunk(
+    "addLanguageSlice/fetchLanguages",
+    async () => {
+        const {request} = useHttp()
+        return await request(`${API_URL}languages/` , "GET" , null , headers())
+    }
+)
+
+
+export const fetchDatabases = createAsyncThunk(
+    "addLanguageSlice/fetchDatabases",
+    async () => {
+        const {request} = useHttp()
+        return await request(`${API_URL}database/` , "GET" , null , headers())
+    }
+)

@@ -25,7 +25,7 @@ export const TypeOrderAddModal = memo(({active, setActive}) => {
                 dispatch(onAddTypeOrder(res))
 
 
-                console.log(res)
+                console.log(res , "res")
                 setActive(false)
                 reset()
             })
