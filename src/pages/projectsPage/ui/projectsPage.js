@@ -8,7 +8,7 @@ import {Header} from "widgets/header";
 
 import cls from "./projectsPage.module.sass";
 import {useDispatch} from "react-redux";
-import {fetchProjectsData} from "../../../entities/projects/model/projectsThunk";
+import {fetchProjectsData} from "entities/projects/model/projectsThunk";
 
 export const ProjectsPage = () => {
 

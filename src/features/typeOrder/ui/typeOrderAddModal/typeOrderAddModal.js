@@ -22,7 +22,7 @@ export const TypeOrderAddModal = memo(({active, setActive}) => {
         console.log(data, "data")
         request(`${API_URL}project-type/`, "POST", JSON.stringify(data), headers())
             .then(res => {
-                dispatch(onAddTypeOrder(data))
+                dispatch(onAddTypeOrder(res))
 
 
                 console.log(res)

@@ -20,6 +20,7 @@ export const ProjectsEditList = memo(({data , setActive , setActiveId}) => {
                     <td>{item?.name}</td>
                     <td>
                         <div onClick={() => {
+                            console.log(item, "item")
                             setActive(true)
                             setActiveId(item?.id)
                         }} className={cls.edit}>
