@@ -33,18 +33,38 @@ export const ProjectModal = ({setActive, active, activeEditItem, typeOrder, hand
     const [dropzones, setDropzones] = useState([{id: Date.now(), files: [defaultImage]}]);
     const [activeDropzone, setActiveDropZone] = useState(false)
     const [databaseSelect, setSelectedDataBase] = useState(null)
+    const [selectedLanguage, setSelectedLanguage] = useState([])
 
     const formData = new FormData()
 
     useEffect(() => {
         dispatch(fetchLanguages())
         dispatch(fetchDatabases())
-    } , [])
+    }, [])
     const database = databases?.map(item => ({
         value: item?.id,
         label: item?.name,
 
     }))
+
+    useEffect(() => {
+        if (activeEditItem) {
+            setSelectedDataBase(activeEditItem?.database?.map(item => ({
+                value: +item?.id,
+                label: item?.name
+            })))
+            changeSelect(activeEditItem?.language?.map(item => ({
+                value: item?.id,
+                label: item?.name,
+                icon: item?.icon
+            })))
+            setChangeFramework(activeEditItem?.framework?.map(item => ({
+                value: item?.id,
+                label: item?.name,
+                icon: item?.icon
+            })))
+        }
+    }, [activeEditItem])
 
     const handleAddDropzone = () => {
         setDropzones([...dropzones, {id: Date.now(), files: [defaultImage]}]);
@@ -142,6 +162,7 @@ export const ProjectModal = ({setActive, active, activeEditItem, typeOrder, hand
             item.value
         ))
         setLanguages(optiLanguage)
+        setSelectedLanguage(prev => [...prev, ...value])
         request(`${API_URL}frameworks/?language=${JSON.stringify(optiLanguage)}`, "GET", null, headers())
 
             .then(res => {
@@ -210,16 +231,19 @@ export const ProjectModal = ({setActive, active, activeEditItem, typeOrder, hand
                             onChange={setSelectedDataBase}
                             extraClass={cls.selectMulti}
                             options={database}
+                            value={databaseSelect}
                         />
                         <AnimatedMulti
                             onChange={changeSelect}
                             extraClass={cls.selectMulti}
                             options={languages}
+                            value={selectedLanguage}
                         />
                         {frameworks ? <AnimatedMulti
                             onChange={setChangeFramework}
                             extraClass={cls.selectMulti}
                             options={framework}
+                            value={changeFramework}
                         /> : null}
 
                     </div>
@@ -258,8 +282,14 @@ export const ProjectModal = ({setActive, active, activeEditItem, typeOrder, hand
                                 </div>
                             </div>
                             <div className={cls.buttonMain}>
-                                {dropzones.length > 3 ? <Button extraClass={cls.plusButton} disabled onClick={handleSubmit(handleAddDropzone)}>+</Button> : <Button extraClass={cls.plusButton} onClick={handleSubmit(handleAddDropzone)}>+</Button>}
-                                {dropzones.length <2 ? <Button extraClass={cls.plusButton} disabled onClick={handleSubmit(handleRemoveDropzone)}>-</Button> : <Button extraClass={cls.plusButton}  onClick={handleSubmit(handleRemoveDropzone)}>-</Button>}
+                                {dropzones.length > 3 ? <Button extraClass={cls.plusButton} disabled
+                                                                onClick={handleSubmit(handleAddDropzone)}>+</Button> :
+                                    <Button extraClass={cls.plusButton}
+                                            onClick={handleSubmit(handleAddDropzone)}>+</Button>}
+                                {dropzones.length < 2 ? <Button extraClass={cls.plusButton} disabled
+                                                                onClick={handleSubmit(handleRemoveDropzone)}>-</Button> :
+                                    <Button extraClass={cls.plusButton}
+                                            onClick={handleSubmit(handleRemoveDropzone)}>-</Button>}
                             </div>
                             <Button extraClass={cls.addModal__btn}>
                                 Add
@@ -272,19 +302,19 @@ export const ProjectModal = ({setActive, active, activeEditItem, typeOrder, hand
     );
 };
 
-const DropzoneComponent = ({index, files, onDrop, img }) => {
+const DropzoneComponent = ({index, files, onDrop, img}) => {
     const {getRootProps, getInputProps} = useDropzone({
         accept: 'image/*',
         onDrop
     });
 
     return (
-        <div {...getRootProps({ className: cls.dropzone })}>
+        <div {...getRootProps({className: cls.dropzone})}>
             <input {...getInputProps()} />
             {files?.length > 0 && files[0] !== defaultImage ? (
                 <div className={cls.imagesContainer}>
                     {files?.map((file, i) => (
-                        <img key={i} src={file?.preview} alt={`preview ${i}`} className={cls.imagePreview} />
+                        <img key={i} src={file?.preview} alt={`preview ${i}`} className={cls.imagePreview}/>
                     ))}
                 </div>
             ) : (
@@ -296,7 +326,7 @@ const DropzoneComponent = ({index, files, onDrop, img }) => {
                             className={cls.defaultImage}
                         />
                     ) : (
-                        <img src={defaultImage} alt="Default" className={cls.defaultImage} />
+                        <img src={defaultImage} alt="Default" className={cls.defaultImage}/>
                     )}
                 </div>
             )}

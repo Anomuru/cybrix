@@ -42,52 +42,96 @@ export const ProjectProfile = () => {
                     </span>
                         <div className={cls.projectProfile__frameworks}>
                             <ul>
-                                <li>database : <div className={cls.li_in}>
-                                    {data?.database?.map(item => (
+                                <li>Database :
+                                    <div className={cls.li_in}>
+                                        {data?.database?.map((item, index) => {
+                                            if (index === data?.database?.length - 1) {
+                                                return (
+                                                    <>
+                                                        {/*<img src={item.icon} alt=""/>*/}
+                                                        <span>{item.name}</span>
+                                                    </>
+                                                )
+                                            }
+                                            return (
+                                                <>
+                                                    {/*<img src={item.icon} alt=""/>*/}
+                                                    <span>{item.name}</span>
+                                                </>
+                                            )
 
-                                        <>
-                                            {/*<img src={item.icon} alt=""/>*/}
-                                            <span>{item.name}</span>
-                                        </>
 
-                                    ))}
-                                </div>
+                                        })}
+                                    </div>
+                                </li>
+                                <li>Language :
+                                    <div className={cls.li_in}>
+                                        {data?.language?.map((item, index) => {
+                                            if (index === data?.language?.length - 1) {
+                                                return (
+                                                    <>
+                                                        {/*<img src={item.icon} alt=""/>*/}
+                                                        <span>{item.name}</span>
+                                                    </>
+                                                )
+                                            }
+                                            return (
+                                                <>
+                                                    {/*<img src={item.icon} alt=""/>*/}
+                                                    <span>{item.name}</span>
+                                                </>
+                                            )
+
+
+                                        })}
+                                    </div>
                                 </li>
                                 <li>Frameworks :
                                     <div className={cls.li_in}>
-                                        {data?.framework?.map(item => (
+                                        {data?.framework?.map((item, index) => {
+                                            if (index === data?.framework?.length - 1) {
+                                                return (
+                                                    <>
+                                                        {/*<img src={item.icon} alt=""/>*/}
+                                                        <span>{item.name}</span>
+                                                    </>
+                                                )
+                                            }
 
-                                            <>
-                                                {/*<img src={item.icon} alt=""/>*/}
-                                                <span>{item.name}</span>
-                                            </>
+                                            return (
 
-                                        ))}
+                                                <>
+                                                    {/*<img src={item.icon} alt=""/>*/}
+                                                    <span>{item.name},</span>
+                                                </>
+
+                                            )
+                                        })}
                                     </div>
                                 </li>
-                        </ul>
-                    </div>
-                    <div className={cls.footer}>
-                        <ul>
-                            {/*<li>*/}
-                            {/*    <i className="fab fa-instagram" style={{color: "#ffffff"}}/> <a href="https://www.instagram.com/genniscampus/" target={"_blank"}>@GENNISCAMPUS</a>*/}
-                            {/*</li>*/}
-                            {/*<li>*/}
-                            {/*    <i className="fab fa-telegram" style={{color: "#ffffff"}}/> <a href="https://t.me/gennis_info" target={"_blank"}>@GENNIS_INFO</a>*/}
-                            {/*</li>*/}
-                            <li>
-                                <i className="fas fa-globe" style={{color: "#ffffff"}}/><a href="https://gennis.uz/"
-                                                                                           target={"_blank"}>@GENNISCAMPUS</a>
+                            </ul>
+                        </div>
+                        <div className={cls.footer}>
+                            <ul>
+                                {/*<li>*/}
+                                {/*    <i className="fab fa-instagram" style={{color: "#ffffff"}}/> <a href="https://www.instagram.com/genniscampus/" target={"_blank"}>@GENNISCAMPUS</a>*/}
+                                {/*</li>*/}
+                                {/*<li>*/}
+                                {/*    <i className="fab fa-telegram" style={{color: "#ffffff"}}/> <a href="https://t.me/gennis_info" target={"_blank"}>@GENNIS_INFO</a>*/}
+                                {/*</li>*/}
+                                <li>
+                                    <i className="fas fa-globe" style={{color: "#ffffff"}}/><a href="https://gennis.uz/"
+                                                                                               target={"_blank"}>@GENNISCAMPUS</a>
 
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
 
-)
-    ;
+    )
+        ;
 };
 
